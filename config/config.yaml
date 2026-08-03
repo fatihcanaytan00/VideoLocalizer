@@ -1,0 +1,68 @@
+# YouTubeLocalizer configuration
+# Copy/edit this file — do not commit real client_secret.json alongside it.
+
+# Language your original video title/description is written in.
+source_language: tr
+
+# Languages to generate localizations for.
+# Codes here are provider-facing (deep-translator/Google Translate codes);
+# the language mapping module (added in a later milestone) will translate
+# these to YouTube's BCP-47 codes where they differ.
+target_languages:
+  - de     # German
+  - ar     # Arabic
+  - az     # Azerbaijani
+  - bg     # Bulgarian
+  - id     # Indonesian
+  - fa     # Persian
+  - fr     # French
+  - hi     # Hindi
+  - ja     # Japanese
+  - ko     # Korean
+  - pt     # Portuguese
+  - ru     # Russian
+  - uk     # Ukrainian
+  - vi     # Vietnamese
+  - el     # Greek
+  - zh-CN  # Chinese (Simplified)
+  - en     # English
+  - es     # Spanish
+  - sv     # Swedish
+  - it     # Italian
+
+translation:
+  # Only "deep_translator_google" is supported in this version.
+  # Kept as a config value so a future GPT provider can be swapped in
+  # without touching code elsewhere.
+  provider: deep_translator_google
+
+# Per-account OAuth credentials (client secret, token) live in
+# config/accounts.yaml, not here — this file holds settings shared
+# across every account the tool runs against.
+
+logging:
+  directory: logs
+  level: INFO
+
+# Names/titles that must survive translation unchanged (proper nouns machine
+# translation tends to mangle — e.g. "Can" in "Fatih Can Aytan" was translated
+# as the verb "can" into several languages during real testing). Matched
+# case-insensitively; the source text's own casing is preserved. Optional —
+# omit or leave empty if unneeded.
+protected_terms:
+  - Fatih Can Aytan
+  - Garten of Banban
+  - Poppy Playtime
+
+# YouTube stores English localizations under either "en" or "en-US"
+# depending on the video (confirmed inconsistent across real videos on the
+# same channel). YouTubeLocalizer standardizes to this key: any existing
+# entry under the other variant is merged in and removed. Default: "en".
+english_localization_key: en
+
+# Tracks which (account, video, language) caption uploads have already
+# succeeded, so a repeated or resumed run skips them instead of
+# re-uploading (real quota testing showed caption uploads are expensive —
+# see v0.2.0 Milestone 6). Not a database, just a small JSON file.
+captions:
+  state_file: state/caption_progress.json

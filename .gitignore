@@ -1,0 +1,20 @@
+# Credentials & tokens (per-account)
+config/accounts/*/client_secret.json
+config/accounts/*/token.json
+
+# Logs
+logs/*.log
+
+# Python
+__pycache__/
+*.pyc
+.env/
+venv/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime state
+state/

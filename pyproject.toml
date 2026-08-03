@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "youtubelocalizer"
+version = "0.1.1"
+description = "Automates translation of YouTube video titles and descriptions into multiple languages."
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]

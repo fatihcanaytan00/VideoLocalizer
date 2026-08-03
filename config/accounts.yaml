@@ -1,0 +1,26 @@
+# Defines the YouTube account profiles this tool can run against.
+# Select one at runtime with:
+#   python -m youtubelocalizer.main --account <name>
+#
+# Each account has its own OAuth client secret and its own cached token,
+# so re-authenticating one account never touches another's session.
+#
+# Rename the placeholder names below to something recognizable
+# (e.g. "main_channel", "second_channel") once you know which is which.
+
+accounts:
+  - name: account_1
+    client_secret_file: config/accounts/account_1/client_secret.json
+    token_file: config/accounts/account_1/token.json
+
+  - name: account_2
+    client_secret_file: config/accounts/account_2/client_secret.json
+    token_file: config/accounts/account_2/token.json
+
+  - name: account_3
+    client_secret_file: config/accounts/account_3/client_secret.json
+    token_file: config/accounts/account_3/token.json
+
+  - name: account_4
+    client_secret_file: config/accounts/account_4/client_secret.json
+    token_file: config/accounts/account_4/token.json
